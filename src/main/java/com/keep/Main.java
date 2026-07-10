@@ -1,8 +1,7 @@
 package com.keep;
 
 import com.keep.database.DatabaseInitializer;
-import com.keep.model.Note;
-import com.keep.repository.NoteRepository;
+import com.keep.ui.Menu;
 
 public class Main {
 
@@ -10,16 +9,10 @@ public class Main {
 
         DatabaseInitializer.initializeDatabase();
 
-        NoteRepository repository = new NoteRepository();
+        Menu menu = new Menu();
 
-        Note note = new Note(
-                "Belajar Java",
-                "Membuat project Google Keep CLI"
-        );
-
-        repository.save(note);
-
-        System.out.println("Program finished.");
+        menu.showMenu();
 
     }
+
 }

@@ -6,14 +6,19 @@ import java.sql.Statement;
 
 public class DatabaseInitializer {
 
+
     public static void initializeDatabase() {
 
         Connection connection = DatabaseConnection.getConnection();
 
+
         if (connection == null) {
+
             System.out.println("Failed to initialize database.");
             return;
+
         }
+
 
         String sql = """
                 CREATE TABLE IF NOT EXISTS notes (
@@ -30,16 +35,17 @@ public class DatabaseInitializer {
                 );
                 """;
 
+
         try {
 
             Statement statement = connection.createStatement();
 
             statement.execute(sql);
 
-            System.out.println("Database initialized successfully.");
 
             statement.close();
             connection.close();
+
 
         } catch (SQLException e) {
 
@@ -47,5 +53,7 @@ public class DatabaseInitializer {
             e.printStackTrace();
 
         }
+
     }
+
 }

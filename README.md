@@ -39,13 +39,4 @@ cd G.keep-uas
 ```bash
 mvn compile
 ```
-
-### Run Program
-
-Run `Main.java` from VS Code or IntelliJ.
-
-Or using Maven:
-
-```bash
-mvn exec:java -Dexec.mainClass="com.keep.Main"
-```
+Then run `Main.java` using VS Code.
