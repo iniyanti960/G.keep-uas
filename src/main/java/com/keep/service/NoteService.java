@@ -44,4 +44,9 @@ public class NoteService {
 
     }
 
+    public void deleteNote(int id) {
+
+    repository.delete(id);
+
+    }
 }

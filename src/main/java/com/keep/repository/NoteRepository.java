@@ -238,4 +238,34 @@ public class NoteRepository {
 
     }
 
+    public void delete(int id) {
+
+        Connection connection = DatabaseConnection.getConnection();
+
+        if (connection == null) {
+            return;
+        }
+
+        String sql = "UPDATE notes SET deleted = 1 WHERE id = ?";
+
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, id);
+
+            statement.executeUpdate();
+
+            statement.close();
+            connection.close();
+
+        } catch (SQLException e) {
+
+            System.out.println("Failed to delete note.");
+            e.printStackTrace();
+
+        }
+
+    }
+
 }

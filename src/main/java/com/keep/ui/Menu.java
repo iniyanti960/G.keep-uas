@@ -63,7 +63,7 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("\nDelete Note feature is not available yet.");
+                    deleteNote();
                     pause();
                     break;
 
@@ -230,4 +230,37 @@ public class Menu {
 
     }
 
+    private void deleteNote() {
+
+        System.out.println();
+        System.out.println("========================================");
+        System.out.println("               DELETE NOTE");
+        System.out.println("========================================");
+
+        System.out.print("Input Note ID : ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.print("Please enter a number : ");
+            scanner.next();
+        }
+
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Note note = service.getNoteById(id);
+
+        if (note == null) {
+
+            System.out.println();
+            System.out.println("Note not found.");
+            return;
+
+        }
+
+        service.deleteNote(id);
+
+        System.out.println();
+        System.out.println("✓ Note deleted successfully.");
+
+    }
 }
