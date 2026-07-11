@@ -1,42 +1,28 @@
-# Google Keep CLI
+## Testing
 
-A simple Google Keep clone built using Java, Maven, and SQLite.
+Pada project ini dilakukan pengujian sederhana menggunakan JUnit 5 dan Mockito.
 
-## Features
+Testing dilakukan pada bagian NoteService untuk memastikan fungsi utama berjalan dengan baik.
 
-- Add Note
-- View Notes
-- Edit Note
-- Delete Note
-- Archive Note
-- Pin Note
-- Search Note
+Beberapa test case yang dibuat:
 
-## Technologies
+- Menambahkan note dengan data yang benar
+- Menambahkan note dengan judul kosong
+- Menambahkan note dengan data null
+- Menampilkan semua note
+- Mengambil note berdasarkan ID
+- Update note
+- Delete note
+- Search note
+- Search berdasarkan label
+- Pin note
+- Archive note
+- Restore note
+- Delete note permanen
 
-- Java 21
-- Maven
-- SQLite
-- JUnit
-- Mockito
+Mockito digunakan untuk membuat simulasi dari `NoteRepository`, sehingga proses testing tidak langsung menggunakan database.
 
-## How to Run
-
-### Clone Repository
-
-```bash
-git clone https://github.com/iniyanti960/G.keep-uas.git
-```
-
-### Open Project
+Hasil testing dapat dijalankan menggunakan perintah:
 
 ```bash
-cd G.keep-uas
-```
-
-### Compile Project
-
-```bash
-mvn compile
-```
-Then run `Main.java` using VS Code.
+mvn clean test
