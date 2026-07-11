@@ -7,33 +7,69 @@ public class Note {
     private int id;
     private String title;
     private String content;
+
     private boolean pinned;
     private boolean archived;
     private boolean deleted;
+
     private String color;
     private String label;
+
+    private LocalDateTime reminderAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-public Note() {
+    public Note() {
 
-}
+    }
 
-public Note(String title, String content) {
-    this.title = title;
-    this.content = content;
+    public Note(String title, String content) {
 
-    this.pinned = false;
-    this.archived = false;
-    this.deleted = false;
+        this.title = title;
+        this.content = content;
 
-    this.color = "WHITE";
-    this.label = "General";
+        pinned = false;
+        archived = false;
+        deleted = false;
 
-    this.createdAt = LocalDateTime.now();
-    this.updatedAt = LocalDateTime.now();
-    
-}
+        color = "WHITE";
+        label = "General";
+
+        reminderAt = null;
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+
+    }
+
+    public Note(
+            int id,
+            String title,
+            String content,
+            boolean pinned,
+            boolean archived,
+            boolean deleted,
+            String color,
+            String label,
+            LocalDateTime reminderAt,
+            LocalDateTime createdAt,
+            LocalDateTime updatedAt) {
+
+        this.id = id;
+        this.title = title;
+        this.content = content;
+
+        this.pinned = pinned;
+        this.archived = archived;
+        this.deleted = deleted;
+
+        this.color = color;
+        this.label = label;
+
+        this.reminderAt = reminderAt;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+
+    }
 
     public int getId() {
         return id;
@@ -99,6 +135,14 @@ public Note(String title, String content) {
         this.label = label;
     }
 
+    public LocalDateTime getReminderAt() {
+        return reminderAt;
+    }
+
+    public void setReminderAt(LocalDateTime reminderAt) {
+        this.reminderAt = reminderAt;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -117,6 +161,7 @@ public Note(String title, String content) {
 
     @Override
     public String toString() {
+
         return "Note{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
@@ -126,9 +171,11 @@ public Note(String title, String content) {
                 ", deleted=" + deleted +
                 ", color='" + color + '\'' +
                 ", label='" + label + '\'' +
+                ", reminderAt=" + reminderAt +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
+
     }
+
 }
-    
